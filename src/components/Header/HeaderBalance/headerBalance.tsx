@@ -8,7 +8,7 @@ interface HeaderBalanceProps {
 export const HeaderBalance = ({ Balance, monthPercent }: HeaderBalanceProps) => {
     return (
         <div className="flex flex-col gap-1">
-            <div className="bg-[#16181a] p-3 rounded-lg border-border border">
+            <div className="bg-[#16181a]/50 p-3 rounded-lg border-border border">
                 <div className="text-[#b9bfc4] font-semibold text-[14px]">Current Balance:</div>
                 <div>
                     <div className="text-[19px] -mt-0.5 text-white font-extrabold">
