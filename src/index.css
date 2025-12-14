@@ -1,1 +1,213 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+
+/* ===============================
+   FONT
+   =============================== */
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* ===============================
+   DESIGN TOKENS (CORE)
+   =============================== */
+@theme inline {
+  /* ---------- base colors ---------- */
+  --color-bg: #0f1113;
+  --color-card: #141518;
+  --color-text: #e9eef2;
+  --color-muted: #9aa0a6;
+
+  /* ---------- accent (brand) ---------- */
+  --color-accent: #8A2BE2;
+  --color-accent-2: #B57BFF;
+
+  /* ---------- semantic states ---------- */
+  --color-success: #00D18F;
+  --color-warning: #FFB443;
+  --color-danger: #FF5C5C;
+
+  /* ---------- surfaces ---------- */
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-glass: rgba(255, 255, 255, 0.04);
+
+  /* ---------- gradients ---------- */
+  --gradient-accent: linear-gradient(
+    135deg,
+    var(--color-accent),
+    var(--color-accent-2)
+  );
+
+  --gradient-card: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.01)
+  );
+
+  --gradient-page:
+    radial-gradient(
+      800px 400px at 10% 10%,
+      rgba(138, 43, 226, 0.08),
+      transparent 8%
+    ),
+    radial-gradient(
+      700px 300px at 90% 90%,
+      rgba(181, 123, 255, 0.04),
+      transparent 10%
+    );
+
+  /* ---------- radius ---------- */
+  --radius-sm: 10px;
+  --radius-md: 12px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+
+  /* ---------- shadows ---------- */
+  --shadow-soft: 0 6px 24px rgba(2, 6, 23, 0.6);
+  --shadow-accent: 0 8px 24px rgba(138, 43, 226, 0.25);
+
+  /* ---------- effects ---------- */
+  --blur-glass: 8px;
+
+  /* ---------- animations ---------- */
+  --animate-float: float 2.6s ease-in-out infinite;
+  --animate-fade: fade 0.3s ease-out;
+}
+
+/* ===============================
+   SHADCN MAPPING
+   =============================== */
+:root {
+  --background: var(--color-bg);
+  --foreground: var(--color-text);
+
+  --card: var(--color-card);
+  --card-foreground: var(--color-text);
+
+  --popover: var(--color-card);
+  --popover-foreground: var(--color-text);
+
+  --primary: var(--color-accent);
+  --primary-foreground: #ffffff;
+
+  --secondary: var(--color-glass);
+  --secondary-foreground: var(--color-text);
+
+  --muted: var(--color-glass);
+  --muted-foreground: var(--color-muted);
+
+  --accent: var(--color-accent);
+  --accent-foreground: #ffffff;
+
+  --destructive: var(--color-danger);
+  --destructive-foreground: #ffffff;
+
+  --border: var(--color-border);
+  --input: var(--color-border);
+  --ring: var(--color-accent);
+
+  --radius: var(--radius-md);
+}
+
+/* ===============================
+   BASE
+   =============================== */
+@layer base {
+  html {
+    @apply bg-bg text-text;
+  }
+
+  body {
+    min-height: 100vh;
+    background-image: var(--gradient-page);
+  }
+}
+
+/* ===============================
+   COMPONENTS
+   =============================== */
+@layer components {
+  .card {
+    @apply rounded-lg border border-border;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(var(--blur-glass));
+  }
+
+  .btn {
+    @apply rounded-md font-semibold text-white;
+    background: var(--gradient-accent);
+    box-shadow: var(--shadow-accent);
+  }
+
+  .btn-ghost {
+    @apply rounded-md border border-border text-text;
+    background: transparent;
+  }
+
+  .glass {
+    background: var(--color-glass);
+    backdrop-filter: blur(var(--blur-glass));
+  }
+}
+
+/* ===============================
+   UTILITIES
+   =============================== */
+@layer utilities {
+  .bg-accent-gradient {
+    background: var(--gradient-accent);
+  }
+
+  .bg-card-gradient {
+    background: var(--gradient-card);
+  }
+
+  .bg-page-gradient {
+    background-image: var(--gradient-page);
+  }
+
+  .text-accent {
+    color: var(--color-accent);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-accent {
+    box-shadow: var(--shadow-accent);
+  }
+
+  .animate-float {
+    animation: var(--animate-float);
+  }
+
+  .animate-fade {
+    animation: var(--animate-fade);
+  }
+}
+
+/* ===============================
+   KEYFRAMES
+   =============================== */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
