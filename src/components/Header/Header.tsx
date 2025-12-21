@@ -17,7 +17,7 @@ function Header() {
     const available = useSelector(selectAvailableBalance);
 
     return (
-        <header className="bg-(--color-bg) shadow-soft rounded-md border border-border">
+        <header className="bg-(--color-card) shadow-soft rounded-md border border-border">
             <div className="flex flex-col gap-5 p-3.5">
                 <HeaderBrand />
                 <HeaderNav item={items} />

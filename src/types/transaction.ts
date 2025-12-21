@@ -7,6 +7,6 @@ export interface Transaction {
     currency: Currency;
     category: Category;
     date: string;             
-    note?: string;
+    note: string;
     createdAt: number;        
 }

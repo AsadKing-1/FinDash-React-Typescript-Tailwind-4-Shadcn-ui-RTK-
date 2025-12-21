@@ -6,20 +6,30 @@ export function AnalyticsTable() {
     const data = useSelector(selectAnalytics);
 
     return (
-        <div className="w-full flex flex-col gap-5">
+        <div className="flex flex-col gap-2.5 w-full mt-2">
             {data.map((row) => (
                 <div
                     key={row.label}
-                    className="flex items-center justify-between w-full"
+                    className="
+                    w-full
+                        flex items-center justify-between
+                        p-3
+                        bg-(--color-bg)
+                        rounded-lg
+                        transition-colors
+                        hover:bg-(--color-glass)
+                    "
                 >
                     <div className="flex items-center gap-3">
                         <span
-                            className="w-4 h-4 rounded-full"
-                            style={{ backgroundColor: getCategoryColor(row.label) }}
+                            className="w-3.5 h-3.5 rounded-full"
+                            style={{
+                                backgroundColor: getCategoryColor(row.label),
+                            }}
                         />
 
-                        <div className="flex flex-col">
-                            <span className="text-[15px] font-semibold text-(--color-text)">
+                        <div className="flex flex-col leading-tight">
+                            <span className="text-[15px] font-medium text-(--color-text)">
                                 {row.label}
                             </span>
                             <span className="text-[12px] text-(--color-muted)">
@@ -28,7 +38,7 @@ export function AnalyticsTable() {
                         </div>
                     </div>
 
-                    <span className="text-[14px] text-(--color-text) font-bold">
+                    <span className="text-[14px] font-semibold text-(--color-text)">
                         $ {row.amount.toLocaleString("ru-RU")}
                     </span>
                 </div>

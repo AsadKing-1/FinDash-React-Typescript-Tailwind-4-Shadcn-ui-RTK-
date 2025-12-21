@@ -8,16 +8,17 @@ interface TransactionsState {
 
 const initialState: TransactionsState = {
     items: []
-}
+};
+
 
 const transactionsSlice = createSlice({
     name: "transactions",
-    initialState, 
-    reducers:{
-        addTransaction(state, action: PayloadAction<Transaction>){
+    initialState,
+    reducers: {
+        addTransaction(state, action: PayloadAction<Transaction>) {
             state.items.push(action.payload);
         },
-        removeTransaction(state, action: PayloadAction<string>){
+        removeTransaction(state, action: PayloadAction<string>) {
             state.items = state.items.filter(t => t.id !== action.payload);
         },
     },

@@ -1,7 +1,32 @@
+import { useSelector } from "react-redux";
+import { selectTransactions } from "@/feature/transactions/selectors";
+
+import { TransactionsEmptyState } from "./TransactionsEmptyState/TransactionsEmptyState";
+import { TransactionsHistory } from "./TransactionsHistory/TransactionHistort";
+
 export function Transactions() {
+
+    const t = useSelector(selectTransactions);
+    const data = t.length > 0
+
     return (
-        <section>
-            <h1 className="text-xl font-semibold">Transactions</h1>
+        <section id="transaction" className="bg-(--color-card) mt-5 p-5 rounded-md border border-(--color-border)">
+            <div>
+                <div className="flex justify-between items-center">
+                    <div>
+                        <p className="text-[20px] font-bold">History</p>
+                    </div>
+                    <div>
+                        <p className="btn w-25 text-[13px] text-center p-1">Show All</p>
+                    </div>
+                </div>
+                <div className="text-[14px] text-(--color-muted)">
+                    Quiсk View
+                </div>
+            </div>
+            <div className="mt-5">
+                {data ? <TransactionsHistory/> : <TransactionsEmptyState/>}
+            </div>
         </section>
     )
 }
