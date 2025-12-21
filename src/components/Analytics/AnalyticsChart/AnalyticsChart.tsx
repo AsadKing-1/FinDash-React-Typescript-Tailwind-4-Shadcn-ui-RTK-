@@ -1,14 +1,7 @@
-import { PieChart, Pie, Cell } from "recharts";
+import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import { useSelector } from "react-redux";
 import { selectAnalytics } from "@/feature/analytics/selector";
-
-const COLORS = [
-    "#8A2BE2",
-    "#00D18F",
-    "#FFB443",
-    "#FF5C5C",
-    "#4DA3FF",
-];
+import { getCategoryColor } from "@/feature/analytics/colors";
 
 export function AnalyticsDonut() {
     const data = useSelector(selectAnalytics);
@@ -19,27 +12,29 @@ export function AnalyticsDonut() {
     );
 
     return (
-        <div className="relative w-full h-full">
-            <PieChart width="100%" height="100%">
-                <Pie
-                    data={data}
-                    dataKey="amount"
-                    nameKey="label"
-                    innerRadius={70}
-                    outerRadius={100}
-                    paddingAngle={3}
-                    cornerRadius={10}
-                    startAngle={90}
-                    endAngle={-270}
-                >
-                    {data.map((_, index) => (
-                        <Cell
-                            key={index}
-                            fill={COLORS[index % COLORS.length]}
-                        />
-                    ))}
-                </Pie>
-            </PieChart>
+        <div className="relative w-75 h-55">
+            <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                    <Pie
+                        data={data}
+                        dataKey="amount"
+                        nameKey="label"
+                        innerRadius={55}
+                        outerRadius={75}
+                        paddingAngle={0}
+                        cornerRadius={1}
+                        startAngle={90}
+                        endAngle={-270}
+                    >
+                        {data.map((row) => (
+                            <Cell
+                                key={row.label}
+                                fill={getCategoryColor(row.label)}
+                            />
+                        ))}
+                    </Pie>
+                </PieChart>
+            </ResponsiveContainer>
 
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
                 <div className="text-[20px] font-bold text-white">

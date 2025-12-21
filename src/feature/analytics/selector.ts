@@ -4,18 +4,14 @@ import { selectTransactions } from "@/feature/transactions/selectors";
 export const selectAnalytics = createSelector(
     [selectTransactions],
     (transactions) => {
+        const source = transactions;
         const grouped: Record<string, number> = {};
 
-        for (const t of transactions) {
+        for (const t of source) {
             if (t.category.type !== "expense") continue;
 
             const label = t.category.label;
-
-            if (grouped[label] === undefined) {
-                grouped[label] = t.amount;
-            } else {
-                grouped[label] += t.amount;
-            }
+            grouped[label] = (grouped[label] ?? 0) + t.amount;
         }
 
         const total = Object.values(grouped).reduce(
