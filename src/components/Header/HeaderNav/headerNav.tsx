@@ -9,11 +9,11 @@ const items: NavItems[] = [
 export const HeaderNav = () => {
   return (
     <div>
-      <ul className="flex flex-col gap-1">
+      <ul className="flex flex-col gap-2">
         {items.map((li) => (
           <li
             key={li.id}
-            className={` font-semibold p-3 rounded-(--radius-md) text-[15px] transition-all duration-150 cursor-pointer [ -webkit-tap-highlight-color:transparent ] active:bg-accent-2/60 active:translate-y-0.5`}
+            className={`border border-(--color-border) font-semibold p-3 rounded-md text-[15px] transition-all duration-150 cursor-pointer [ -webkit-tap-highlight-color:transparent ] active:bg-accent-2/60 active:translate-y-0.5 bg-(--color-card)`}
           >
             <a href={li.href}>{li.label}</a>
           </li>

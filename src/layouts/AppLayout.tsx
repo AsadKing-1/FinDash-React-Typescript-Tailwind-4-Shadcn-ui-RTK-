@@ -1,4 +1,4 @@
-import Header from "@/components/Header/Header";
+import Header from "@/pages/Header"
 
 export function AppLayout({ children }: { children: React.ReactNode }) {
     return (

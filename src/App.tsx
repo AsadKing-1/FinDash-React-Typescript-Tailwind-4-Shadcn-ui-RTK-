@@ -1,16 +1,16 @@
 import { AppLayout } from "./layouts/AppLayout";
-import { Dashboard } from "./components/Dashboard/Dashboard";
-import { Analytics } from "./components/Analytics/Analytics";
-import { Transactions } from "./components/Transactions/Transactions";
+import { Dashboard } from "./pages/Dashboard";
+import { Analytics } from "./pages/Analytics";
+import { Transactions } from "./pages/Transactions";
 
 function App() {
   return (
     <AppLayout>
       <Dashboard />
-      <Analytics/>
-      <Transactions/>
+      <Analytics />
+      <Transactions />
     </AppLayout>
-  )
+  );
 }
 
-export default App
+export default App;
