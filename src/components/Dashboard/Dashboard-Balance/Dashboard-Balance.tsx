@@ -13,22 +13,22 @@ export const DashboardBalance = () => {
             <div>
                 <div className="mt-1.5">
                     <div className="flex justify-between items-center">
-                        <div className="text-[14px] text-(--color-muted)">
+                        <div className="text-[12px] text-(--color-muted)">
                             Amount:
                         </div>
-                        <div className="text-[14px] text-(--color-muted)">
+                        <div className="text-[12px] text-(--color-muted)">
                             Expense Forecast
                         </div>
                     </div>
                 </div>
-                <div className="text-[25px] text-(--color-text) font-extrabold">
+                <div className="text-[22px] text-(--color-text) font-extrabold">
                     $ {available}
                 </div>
             </div>
             <div className="flex flex-col gap-2 mt-2 md:flex-row-reverse">
                 <div className="w-full bg-[linear-gradient(180deg,rgba(255,255,255,0.01),transparent)] p-3 rounded-md">
                     <div className="text-[14px] text-(--color-muted)">Income (Month):</div>
-                    <div className="font-extrabold text-emerald-500 text-[20px]">
+                    <div className="font-extrabold text-emerald-500 text-[18px]">
                         +$ {balance.income}
                     </div>
                 </div>
@@ -36,7 +36,7 @@ export const DashboardBalance = () => {
                     <div className="text-[14px] text-(--color-muted)">
                         Expense (Month):
                     </div>
-                    <div className="font-extrabold text-red-500 text-[20px]">
+                    <div className="font-extrabold text-red-500 text-[18px]">
                         -$ {balance.expense}
                     </div>
                 </div>
@@ -44,7 +44,7 @@ export const DashboardBalance = () => {
                     <div className="text-[14px] text-(--color-muted)">
                         Savings:
                     </div>
-                    <div className="font-extrabold text-accent-2 text-[20px]">
+                    <div className="font-extrabold text-accent-2 text-[18px]">
                         $ {savings}
                     </div>
                 </div>
